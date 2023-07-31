@@ -1,7 +1,11 @@
 import React from "react";
 import LogoutButton from "./LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButtonAuth0 from "./LoginButtonAuth0";
 
 function Navbar() {
+  const { user, isAuthenticated } = useAuth0();
+
   return (
     <div>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -83,9 +87,15 @@ function Navbar() {
                   Contact
                 </a>
               </li>
-              <li>
-                <LogoutButton />
-              </li>
+              {isAuthenticated ? (
+                <li>
+                  <LogoutButton />
+                </li>
+              ) : (
+                <li>
+                  <LoginButtonAuth0 paddingY="py-0.5" />
+                </li>
+              )}
             </ul>
           </div>
         </div>
