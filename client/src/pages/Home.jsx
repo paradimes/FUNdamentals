@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Navbar from "../components/Navbar";
 import CourseCard from "../components/CourseCard";
@@ -6,12 +7,12 @@ import ChemistryCourse from "../assets/ChemistryCourse.svg";
 import PhysicsCourse from "../assets/PhysicsCourse.svg";
 import { useAuth0 } from "@auth0/auth0-react";
 
-function Home() {
-  const { user, isAuthenticated } = useAuth0();
+function Home({ isAuthenticated, user }) {
+  // const { user, isAuthenticated } = useAuth0();
 
   return (
     <>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} />
       {isAuthenticated && (
         <div className="px-20 pt-16 text-3xl font-bold flex">
           Welcome{" "}
