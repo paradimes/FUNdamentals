@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoadingIndicator from "./components/LoadingIndicator";
 import LandingPage from "./pages/LandingPage";
 import AllCourses from "./pages/AllCourses";
+import DetailedCourseView from "./pages/DetailedCourseView";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -45,6 +46,10 @@ function App() {
           <Route
             path="courses"
             element={<AllCourses isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="courses/detailed"
+            element={<DetailedCourseView isAuthenticated={isAuthenticated} />}
           />
         </Route>{" "}
       </Routes>

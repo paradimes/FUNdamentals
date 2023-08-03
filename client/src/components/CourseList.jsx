@@ -2,6 +2,7 @@ import React from "react";
 import MathCourse from "../assets/MathCourse.svg";
 import ChemistryCourse from "../assets/ChemistryCourse.svg";
 import PhysicsCourse from "../assets/PhysicsCourse.svg";
+import BiologyCourse from "../assets/BiologyCourse.svg";
 import CourseCard from "./CourseCard";
 
 export default function CourseList() {
@@ -17,10 +18,36 @@ export default function CourseList() {
           </p>
         </div>
         <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
-          <CourseCard courseImg="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" />
-          <CourseCard courseImg={MathCourse} />
-          <CourseCard courseImg={ChemistryCourse} />
-          <CourseCard courseImg={PhysicsCourse} />
+          <CourseCard
+            courseImg={MathCourse}
+            heading="Core Collection"
+            title="Mathematics"
+            description={
+              "Master essential mathematical concepts and problem-solving skills in this comprehensive introductory math course covering algebra, geometry, and calculus."
+            }
+          />
+          <CourseCard
+            courseImg={PhysicsCourse}
+            heading="Core Collection"
+            title="Physics"
+            description="Explore the fundamental principles of motion, energy, and forces in this introductory physics course."
+          />
+          <CourseCard
+            courseImg={BiologyCourse}
+            heading="Core Collection"
+            title="Biology"
+            description={
+              "Embark on a fascinating journey to understand the living world, from cellular processes to ecosystems, in this foundational biology course."
+            }
+          />
+          <CourseCard
+            courseImg={ChemistryCourse}
+            heading="Core Collection"
+            title="Chemistry"
+            description={
+              "Discover the building blocks of matter and delve into chemical reactions and properties in this foundational chemistry course."
+            }
+          />
         </div>
       </div>
     </section>
