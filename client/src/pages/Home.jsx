@@ -10,7 +10,7 @@ function Home() {
   const { user, isAuthenticated } = useAuth0();
 
   return (
-    <div>
+    <>
       <Navbar />
       {isAuthenticated && (
         <div className="px-20 pt-16 text-3xl font-bold flex">
@@ -23,13 +23,13 @@ function Home() {
       )}
       <section
         id="courses"
-        className="flex items-center justify-center mt-20 gap-10"
+        className="flex flex-wrap items-center justify-center mt-20 gap-10"
       >
         <CourseCard courseName="Mathematics" courseImg={MathCourse} />
         <CourseCard courseName="Physics" courseImg={PhysicsCourse} />
         <CourseCard courseName="Chemistry" courseImg={ChemistryCourse} />
       </section>
-    </div>
+    </>
   );
 }
 

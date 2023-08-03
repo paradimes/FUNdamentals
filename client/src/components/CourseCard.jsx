@@ -1,51 +1,33 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import MathCourse from "../assets/MathCourse.svg";
-import FullStar from "./FullStar";
-import EmptyStar from "./EmptyStar";
 
-function CourseCard({ courseName, courseImg }) {
+export default function CourseCard({ courseImg }) {
   return (
-    <div>
-      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+      <div className="md:flex">
+        <div className="md:shrink-0">
           <img
-            className="p-8 rounded-t-lg w-72 h-64"
+            className="h-48 w-full object-contain md:h-full md:w-48"
             src={courseImg}
-            alt="product image"
+            alt="Modern building architecture"
           />
-        </a>
-        <div className="px-5 pb-5">
-          <a href="#">
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              {courseName}
-            </h5>
+        </div>
+        <div className="p-8">
+          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+            Company retreats
+          </div>
+          <a
+            href="#"
+            className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+          >
+            Incredible accommodation for your team
           </a>
-          <div className="flex items-center mt-2.5 mb-5">
-            <FullStar />
-            <FullStar />
-            <FullStar />
-            <FullStar />
-            <FullStar />
-            <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-              5.0
-            </span>
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              $5
-            </span>
-            <a
-              href="#"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Add to cart
-            </a>
-          </div>
+          <p className="mt-2 text-slate-500">
+            Looking to take your team away on a retreat to enjoy awesome food
+            and take in some sunshine? We have a list of places to do just that.
+          </p>
         </div>
       </div>
     </div>
   );
 }
-
-export default CourseCard;

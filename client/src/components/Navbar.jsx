@@ -17,7 +17,7 @@ function Navbar() {
               alt="Logo"
             /> */}
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Anas Academy
+              FUNdamentals
             </span>
           </a>
           <button

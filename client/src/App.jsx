@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoadingIndicator from "./components/LoadingIndicator";
 import LandingPage from "./pages/LandingPage";
+import AllCourses from "./pages/AllCourses";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -37,6 +38,7 @@ function App() {
             }
           />
           <Route path="welcome" element={<LandingPage />} />
+          <Route path="courses" element={<AllCourses />} />
         </Route>{" "}
       </Routes>
     </BrowserRouter>
