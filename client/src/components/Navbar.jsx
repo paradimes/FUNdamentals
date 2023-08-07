@@ -2,7 +2,7 @@
 import React from "react";
 import LogoutButton from "./LogoutButton";
 import LoginButtonAuth0 from "./LoginButtonAuth0";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ isAuthenticated }) {
   return (
