@@ -2,11 +2,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function CourseCard({ courseImg, heading, title, description }) {
+export default function CourseCard({
+  courseImg,
+  heading,
+  title,
+  description,
+  to,
+}) {
   const navigate = useNavigate();
 
   const handleButtonClicked = () => {
-    navigate("/courses/detailed");
+    navigate(to);
   };
 
   return (
@@ -16,7 +22,7 @@ export default function CourseCard({ courseImg, heading, title, description }) {
           <img
             className="h-48 w-full object-contain md:h-full md:w-48 "
             src={courseImg}
-            alt="Modern building architecture"
+            alt="Course Image"
           />
         </div>
         <div className="p-8 ">

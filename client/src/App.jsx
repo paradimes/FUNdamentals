@@ -6,7 +6,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoadingIndicator from "./components/LoadingIndicator";
 import LandingPage from "./pages/LandingPage";
 import AllCourses from "./pages/AllCourses";
-import DetailedCourseView from "./pages/DetailedCourseView";
+import DetailedPhysicsPage from "./pages/DetailedPhysicsPage";
+import DetailedMathPage from "./pages/DetailedMathPage";
+import DetailedBiologyPage from "./pages/DetailedBiologyPage";
+import DetailedChemistryPage from "./pages/DetailedChemistryPage";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -48,8 +51,22 @@ function App() {
             element={<AllCourses isAuthenticated={isAuthenticated} />}
           />
           <Route
-            path="courses/detailed"
-            element={<DetailedCourseView isAuthenticated={isAuthenticated} />}
+            path="courses/detailed/classical-mechanics"
+            element={<DetailedPhysicsPage isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="courses/detailed/math"
+            element={<DetailedMathPage isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="courses/detailed/bio"
+            element={<DetailedBiologyPage isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="courses/detailed/chem"
+            element={
+              <DetailedChemistryPage isAuthenticated={isAuthenticated} />
+            }
           />
         </Route>{" "}
       </Routes>

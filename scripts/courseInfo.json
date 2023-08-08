@@ -1,0 +1,66 @@
+{
+  "1_classicalMechanicsMIT": {
+    "title": "Classical Mechanics",
+    "description": "This first course in the physics curriculum introduces classical mechanics. Historically, a set of core concepts — space, time, mass, force, momentum, torque, and angular momentum — were introduced in classical  mechanics in order to solve the most famous physics problem, the motion of the planets.\nThe principles of mechanics successfully described many other phenomena encountered in the world. Conservation laws involving energy, momentum and angular momentum provided a second parallel approach to solving many of the same problems. In this course, we will investigate both approaches: Force and conservation laws.",
+    "tableOfContents": {
+      "1": "Kinematics",
+      "2": "Newton's Laws Circular Motion",
+      "3": "Circular Motion Momentum and Impulse",
+      "4": "Drag Forces, Constraints and Continuous Systems Work and Mechanical Energy",
+      "5": "Momentum and Impulse Collision Theory",
+      "6": "Continuous Mass Transfer Torque",
+      "7": "Kinetic Energy and Work",
+      "8": "Potential Energy and Energy Conservation",
+      "9": "Collision Theory",
+      "10": "Rotational Motion",
+      "11": "Angular Momentum",
+      "12": "Rotations and Translation - Rolling"
+    }
+  },
+  "precalculusKhanAcademy": {
+    "title": "Precalculus",
+    "description": "The Precalculus course on Khan Academy covers a wide range of topics that are essential for building a solid mathematical foundation. The course is suitable for learners at various levels, whether you're just starting out or looking to reinforce your preexisting knowledge.",
+    "tableOfContents": {
+      "1": "Composite and inverse functions",
+      "2": "Trigonometry",
+      "3": "Complex numbers",
+      "4": "Rational functions",
+      "5": "Conic sections",
+      "6": "Vectors",
+      "7": "Matrices",
+      "8": "Probability and combinatorics",
+      "9": "Series",
+      "10": "Limits and continuity"
+    }
+  },
+  "biologyKhanAcademy": {
+    "title": "Biology",
+    "description": "The Introduction to Biology course provides a comprehensive understanding of the key concepts in biology, allowing you to explore the living world and gain insights into how organisms function and interact.",
+    "tableOfContents": {
+      "1": "Introduction to Biology",
+      "2": "Chemistry of Life",
+      "3": "Cell Structure and Function",
+      "4": "Cellular Energetics",
+      "5": "Cell Division",
+      "6": "Genetics",
+      "7": "Evolution and Natural Selection",
+      "8": "Ecology",
+      "9": "Human Anatomy and Physiology"
+    }
+  },
+  "chemistryKhanAcademy": {
+    "title": "Chemistry",
+    "description": "The Chemistry course on Khan Academy offers a comprehensive and structured approach to learning fundamental chemistry concepts, starting from the basics and gradually progressing to more advanced topics.",
+    "tableOfContents": {
+      "1": "Atoms and Elements",
+      "2": "Chemical Reactions and Stoichiometry",
+      "3": "Gases and Kinetic Molecular Theory",
+      "4": "Chemical Bonding and Molecular Structure",
+      "5": "Chemical Thermodynamics",
+      "6": "Acids and Bases",
+      "7": "Chemical Equilibrium",
+      "8": "Chemical Kinetics",
+      "9": "Oxidation and Reduction"
+    }
+  }
+}
