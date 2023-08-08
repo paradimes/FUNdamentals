@@ -16,7 +16,7 @@ export default function CourseCard({
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div className="max-w-md mx-auto bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
       <div className="md:flex">
         <div className="md:shrink-0">
           <img
@@ -31,11 +31,13 @@ export default function CourseCard({
           </div>
           <a
             href="#"
-            className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+            className="block mt-1 text-lg leading-tight font-medium text-black dark:text-white hover:underline"
           >
             {title}
           </a>
-          <p className="mt-2 text-slate-500">{description}</p>
+          <p className="mt-2 text-slate-500 dark:text-slate-400">
+            {description}
+          </p>
           <button
             onClick={handleButtonClicked}
             className="bg-indigo-600 text-white px-2 py-1 rounded-xl mt-2"

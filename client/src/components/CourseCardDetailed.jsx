@@ -10,7 +10,7 @@ export default function CourseCardDetailed({
   link,
 }) {
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xloverflow-hidden md:max-w-2xl">
+    <div className="max-w-md mx-auto bg-white dark:bg-slate-800 rounded-xl overflow-hidden md:max-w-2xl">
       <div className="md:shrink-0items-center justify-center flex">
         <img
           className="h-48 w-full object-contain md:h-full md:w-48 "
@@ -30,11 +30,13 @@ export default function CourseCardDetailed({
           </div>
           <a
             href={link}
-            className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+            className="block mt-1 text-lg leading-tight font-medium text-black dark:text-slate-300 hover:underline"
           >
             {title}
           </a>
-          <p className="mt-2 text-slate-500">{description}</p>
+          <p className="mt-2 text-slate-500 dark:text-slate-400">
+            {description}
+          </p>
         </div>
       </div>
     </div>
