@@ -6,15 +6,15 @@ import MathCourse from "../assets/MathCourse.svg";
 import ChemistryCourse from "../assets/ChemistryCourse.svg";
 import PhysicsCourse from "../assets/PhysicsCourse.svg";
 import { useAuth0 } from "@auth0/auth0-react";
+import Footer from "../components/Footer";
+import CourseList from "../components/CourseList";
 
-function Home({ isAuthenticated, user }) {
-  // const { user, isAuthenticated } = useAuth0();
-
+function MyAccount({ isAuthenticated, user }) {
   return (
     <>
       <Navbar isAuthenticated={isAuthenticated} />
       {isAuthenticated && (
-        <div className="px-20 pt-16 text-3xl font-bold flex">
+        <div className="px-20 pt-16 text-3xl font-bold flex items-center justify-center">
           Welcome{" "}
           <p className="ml-2 mr-0.5 text-primary-600 font-black">
             {user.nickname}
@@ -22,16 +22,9 @@ function Home({ isAuthenticated, user }) {
           !
         </div>
       )}
-      <section
-        id="courses"
-        className="flex flex-wrap items-center justify-center mt-20 gap-10"
-      >
-        <CourseCard courseName="Mathematics" courseImg={MathCourse} />
-        <CourseCard courseName="Physics" courseImg={PhysicsCourse} />
-        <CourseCard courseName="Chemistry" courseImg={ChemistryCourse} />
-      </section>
+      <Footer />
     </>
   );
 }
 
-export default Home;
+export default MyAccount;

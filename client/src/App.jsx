@@ -1,6 +1,5 @@
 import React from "react";
 import "./index.css";
-import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoadingIndicator from "./components/LoadingIndicator";
@@ -11,6 +10,7 @@ import DetailedMathPage from "./pages/DetailedMathPage";
 import DetailedBiologyPage from "./pages/DetailedBiologyPage";
 import DetailedChemistryPage from "./pages/DetailedChemistryPage";
 import About from "./pages/About";
+import MyAccount from "./pages/MyAccount";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -39,7 +39,7 @@ function App() {
             index
             element={
               <ProtectedRoute>
-                <Home isAuthenticated={isAuthenticated} user={user} />
+                <MyAccount isAuthenticated={isAuthenticated} user={user} />
               </ProtectedRoute>
             }
           />
