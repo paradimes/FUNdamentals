@@ -20,7 +20,7 @@ export default function DetailedChemistryPage({ isAuthenticated }) {
         heading={"Khan Academy"}
         title={title}
         description={description}
-        link={"https://www.khanacademy.org/science/chemistrys/"}
+        link={"https://www.khanacademy.org/science/chemistry/"}
       />
       <CourseTOC tableOfContents={tableOfContents} />
       <Footer />
