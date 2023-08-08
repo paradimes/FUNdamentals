@@ -10,6 +10,7 @@ import DetailedPhysicsPage from "./pages/DetailedPhysicsPage";
 import DetailedMathPage from "./pages/DetailedMathPage";
 import DetailedBiologyPage from "./pages/DetailedBiologyPage";
 import DetailedChemistryPage from "./pages/DetailedChemistryPage";
+import About from "./pages/About";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -45,6 +46,10 @@ function App() {
           <Route
             path="welcome"
             element={<LandingPage isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="about"
+            element={<About isAuthenticated={isAuthenticated} />}
           />
           <Route
             path="courses"
