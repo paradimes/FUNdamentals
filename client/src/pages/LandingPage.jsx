@@ -1,17 +1,26 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import FeatureList from "../components/FeatureList";
 import Navbar from "../components/Navbar";
-import PricingCards from "../components/PricingCards";
 import Footer from "../components/Footer";
 import Logos from "../components/Logos";
+import HomePageHero from "../components/HomePageHero";
+import Person3 from "../assets/Person3.svg";
+import Person4 from "../assets/Person4.svg";
+import Person5 from "../assets/Person5.svg";
 
 function LandingPage({ isAuthenticated }) {
   return (
-    <div>
+    <div className="flex flex-col h-screen bg-white dark:bg-gray-900">
       <Navbar isAuthenticated={isAuthenticated} />
-      <FeatureList />
-      <Logos />
+      <div className="flex-grow dark:bg-gray-900">
+        <HomePageHero />
+        <Logos />
+        <div className="flex flex-row my-5 items-center justify-center">
+          <img src={Person3} />
+          <img src={Person5} />
+          <img src={Person4} />
+        </div>
+      </div>
       <Footer />
     </div>
   );

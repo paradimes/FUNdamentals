@@ -3,11 +3,11 @@ import naval from "../assets/naval.jpg";
 
 export default function Quote() {
   return (
-    <section className="bg-white dark:bg-gray-900 rounded-3xl ">
+    <section className="bg-white dark:bg-slate-600 rounded-3xl ">
       <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6 ">
         <figure className="max-w-screen-md mx-auto">
           <svg
-            className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
+            className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-900"
             viewBox="0 0 24 27"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ export default function Quote() {
               <div className="pr-3 font-medium text-gray-900 dark:text-white">
                 Naval Ravikant
               </div>
-              <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+              <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-200">
                 Co-founder, Chairman, and former CEO of AngelList
               </div>
             </div>
