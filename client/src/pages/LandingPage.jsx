@@ -4,13 +4,14 @@ import FeatureList from "../components/FeatureList";
 import Navbar from "../components/Navbar";
 import PricingCards from "../components/PricingCards";
 import Footer from "../components/Footer";
+import Logos from "../components/Logos";
 
 function LandingPage({ isAuthenticated }) {
   return (
     <div>
       <Navbar isAuthenticated={isAuthenticated} />
       <FeatureList />
-      <PricingCards />
+      <Logos />
       <Footer />
     </div>
   );
