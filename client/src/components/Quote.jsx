@@ -3,7 +3,7 @@ import naval from "../assets/naval.jpg";
 
 export default function Quote() {
   return (
-    <section className="bg-white dark:bg-slate-600 rounded-3xl ">
+    <section className="bg-slate-200 dark:bg-slate-600 rounded-3xl ">
       <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6 ">
         <figure className="max-w-screen-md mx-auto">
           <svg
@@ -19,16 +19,9 @@ export default function Quote() {
           </svg>
           <blockquote>
             <p className="text-xl font-normal text-gray-900 dark:text-white ">
-              &quot;I think learning should be about learning the basics in all
-              the fields and learning them really well over and over. Life is
-              mostly about applying the basics and only doing the advanced work
-              in the things you truly love, and where you understand the basics
-              inside out.
-              <br />
-              <br />
-              I’m sure 90% of you had this happen to you, when you were learning
-              mathematics. At some point, you were keeping up, you were doing
-              arithmetic, then you were doing geometry, then trigonometry,
+              &quot;I’m sure 90% of you had this happen to you, when you were
+              learning mathematics. At some point, you were keeping up, you were
+              doing arithmetic, then you were doing geometry, then trigonometry,
               pre-calculus, and calculus.
               <br />
               <br />
@@ -58,6 +51,13 @@ export default function Quote() {
               <br />
               We teach all these kids calculus and they walk out not
               understanding calculus at all.&quot;
+              <br />
+              <br />
+              &quot;I think learning should be about learning the basics in all
+              the fields and learning them really well over and over. Life is
+              mostly about applying the basics and only doing the advanced work
+              in the things you truly love, and where you understand the basics
+              inside out. &quot;
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center mt-6 space-x-3">
