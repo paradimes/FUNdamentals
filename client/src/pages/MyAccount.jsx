@@ -4,24 +4,22 @@ import Navbar from "../components/Navbar";
 import MathCourse from "../assets/MathCourse.svg";
 import Footer from "../components/Footer";
 import UserProfileCard from "../components/userProfileCard";
+import Construction from "../assets/Construction.svg";
 
 function MyAccount({ isAuthenticated, user }) {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-white dark:bg-gray-900">
       <Navbar isAuthenticated={isAuthenticated} />
       {isAuthenticated && (
-        // <>
-        <div className="flex-grow ">
-          <h1 className="px-20 pt-16 text-3xl font-bold flex items-center justify-center mb-10">
-            Welcome{" "}
-            <p className="ml-2 mr-0.5 text-primary-600 font-black">
-              {user.nickname}
-            </p>{" "}
-            !
+        <div className="shrink:0 flex-grow items-center justify-center flex flex-col md:flex-row gap-10 mx-40 md:mr-10">
+          <h1 className="text-5xl font-extrabold flex items-center justify-center">
+            This page is under construction.
           </h1>
-          <UserProfileCard courseImg={MathCourse} />
+          <img
+            src={Construction}
+            className="h-48 w-full object-contain md:h-full md:w-9/12 "
+          />
         </div>
-        // </>
       )}
       <Footer />
     </div>

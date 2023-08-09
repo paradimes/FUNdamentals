@@ -18,9 +18,9 @@ export default function CourseCard({
   return (
     <div className="max-w-md mx-auto bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
       <div className="md:flex md:flex-col lg:flex-row">
-        <div className="md:shrink-0">
+        <div className="md:shrink-0 mt-5 md:flex md:items-center md:justify-center">
           <img
-            className="h-48 w-full object-contain md:h-full md:w-48 "
+            className="h-48 w-full object-contain md:h-full md:w-48  "
             src={courseImg}
             alt="Course Image"
           />
@@ -40,7 +40,7 @@ export default function CourseCard({
           </p>
           <button
             onClick={handleButtonClicked}
-            className="bg-indigo-600 text-white px-2 py-1 rounded-xl mt-2"
+            className="bg-indigo-600 text-white px-2 py-1 rounded-xl mt-5"
           >
             Details
           </button>

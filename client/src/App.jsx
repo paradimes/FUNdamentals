@@ -36,7 +36,8 @@ function App() {
       <Routes>
         <Route path="/">
           <Route
-            index
+            // index
+            path="account"
             element={
               <ProtectedRoute>
                 <MyAccount isAuthenticated={isAuthenticated} user={user} />
