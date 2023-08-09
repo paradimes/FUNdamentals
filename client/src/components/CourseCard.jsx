@@ -17,7 +17,7 @@ export default function CourseCard({
 
   return (
     <div className="max-w-md mx-auto bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-      <div className="md:flex">
+      <div className="md:flex md:flex-col lg:flex-row">
         <div className="md:shrink-0">
           <img
             className="h-48 w-full object-contain md:h-full md:w-48 "

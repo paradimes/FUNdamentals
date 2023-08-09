@@ -22,7 +22,7 @@ export default function About({ isAuthenticated }) {
             understanding.
             <br />
             <br />
-            Naval Ravikant&apos;s quote serves as inspiration:
+            The following quote by Naval Ravikant serves as inspiration:
           </p>
           <Quote />
         </div>
