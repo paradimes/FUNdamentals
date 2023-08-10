@@ -12,7 +12,7 @@ function MyAccount({ isAuthenticated, user }) {
       <Navbar isAuthenticated={isAuthenticated} />
       {isAuthenticated && (
         <div className="shrink:0 flex-grow items-center justify-center flex flex-col md:flex-row gap-10 mx-40 md:mr-10">
-          <h1 className="text-5xl font-extrabold flex items-center justify-center">
+          <h1 className="text-5xl font-extrabold flex items-center justify-center text-slate-500 dark:text-white">
             This page is under construction.
           </h1>
           <img

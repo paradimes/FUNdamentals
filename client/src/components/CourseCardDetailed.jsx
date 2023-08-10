@@ -10,7 +10,7 @@ export default function CourseCardDetailed({
   link,
 }) {
   return (
-    <div className="max-w-md mx-auto bg-white dark:bg-slate-800 rounded-xl overflow-hidden md:max-w-2xl">
+    <div className="max-w-md mx-auto bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden md:max-w-2xl">
       <div className="md:shrink-0items-center justify-center flex mt-5">
         <img
           className="h-48 w-full object-contain md:h-full md:w-48 "

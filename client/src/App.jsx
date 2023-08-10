@@ -14,9 +14,6 @@ import MyAccount from "./pages/MyAccount";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log("user", user);
-  console.log("isAuthenticated", isAuthenticated);
-  // console.log("isLoading", isLoading);
 
   if (isLoading) {
     return <LoadingIndicator />;

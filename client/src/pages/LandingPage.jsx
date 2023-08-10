@@ -12,10 +12,10 @@ function LandingPage({ isAuthenticated }) {
   return (
     <div className="flex flex-col h-screen bg-white dark:bg-gray-900">
       <Navbar isAuthenticated={isAuthenticated} />
-      <div className="flex-grow dark:bg-gray-900">
+      <div className="flex-grow bg-white dark:bg-gray-900">
         <HomePageHero />
         <Logos />
-        <div className="flex flex-row my-5 items-center justify-center">
+        <div className="flex flex-row py-5 items-center justify-center bg-white dark:bg-gray-900">
           <img src={Person3} />
           <img src={Person5} />
           <img src={Person4} />

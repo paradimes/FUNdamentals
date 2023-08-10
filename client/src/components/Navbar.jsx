@@ -1,13 +1,33 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect } from "react";
 import LogoutButton from "./LogoutButton";
 import LoginButtonAuth0 from "./LoginButtonAuth0";
 import { Link, useLocation } from "react-router-dom";
 import NavbarCollapsed from "./NavbarCollapsed";
+import Sun from "../assets/Sun.svg";
+
+const onSwitchTheme = () => {
+  const htmlClassName = document.documentElement.classList;
+  const isDarkActive = htmlClassName.contains("dark");
+
+  if (isDarkActive) {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+};
 
 export default function Navbar({ isAuthenticated }) {
   const location = useLocation();
   const path = location.pathname;
+
+  // const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  // useEffect(() => {
+  //   if (prefersDark) {
+  //     document.documentElement.classList.add("dark");
+  //   }
+  // }, [prefersDark]);
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -28,8 +48,10 @@ export default function Navbar({ isAuthenticated }) {
             <li>
               <Link
                 to="/welcome"
-                className={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
-                  path === "/welcome" && "text-blue-700 dark:text-blue-600"
+                className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                  path === "/welcome"
+                    ? "text-blue-700 dark:text-blue-600"
+                    : "text-gray-900 dark:text-white"
                 }`}
                 aria-current="page"
               >
@@ -39,8 +61,10 @@ export default function Navbar({ isAuthenticated }) {
             <li>
               <Link
                 to="/about"
-                className={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
-                  path === "/about" && "text-blue-700 dark:text-blue-600"
+                className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                  path === "/about"
+                    ? "text-blue-700 dark:text-blue-600"
+                    : "text-gray-900 dark:text-white"
                 }`}
               >
                 About
@@ -49,8 +73,10 @@ export default function Navbar({ isAuthenticated }) {
             <li>
               <Link
                 to="/courses"
-                className={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
-                  path === "/courses" && "text-blue-700 dark:text-blue-600"
+                className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                  path === "/courses"
+                    ? "text-blue-700 dark:text-blue-600"
+                    : "text-gray-900 dark:text-white"
                 }`}
               >
                 Courses{" "}
@@ -61,8 +87,10 @@ export default function Navbar({ isAuthenticated }) {
                 <li>
                   <Link
                     to="/account"
-                    className={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
-                      path === "/account" && "text-blue-700 dark:text-blue-600"
+                    className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                      path === "/account"
+                        ? "text-blue-700 dark:text-blue-600"
+                        : "text-gray-900 dark:text-white"
                     }`}
                   >
                     My Account
@@ -77,6 +105,14 @@ export default function Navbar({ isAuthenticated }) {
                 <LoginButtonAuth0 paddingY="py-0.5" />
               </li>
             )}
+            <li>
+              <button
+                className="p-1 rounded-full bg-white dark:bg-slate-500 "
+                onClick={onSwitchTheme}
+              >
+                <img src={Sun} className="w-6 h-6 " />
+              </button>
+            </li>
           </ul>
         </div>
       </div>
