@@ -8,9 +8,9 @@ import Quote from "../components/Quote";
 
 export default function About({ isAuthenticated }) {
   return (
-    <div className="bg-white dark:bg-slate-900 ">
+    <div className=" flex flex-col h-screen  bg-white dark:bg-slate-900 ">
       <Navbar isAuthenticated={isAuthenticated} />
-      <section className=" flex flex-col items-center justify-center text-black dark:text-white">
+      <section className=" flex-grow flex flex-col items-center justify-center text-black dark:text-white bg-white dark:bg-slate-900">
         <div className="mx-20 my-10 px-32 py-16 rounded-xl dark:bg-slate-900">
           <h1 className="pb-5 font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
             Welcome to FUNdamentals

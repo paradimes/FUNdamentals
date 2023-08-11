@@ -13,16 +13,18 @@ const tableOfContents = courseInfo["chemistryKhanAcademy"].tableOfContents;
 
 export default function DetailedChemistryPage({ isAuthenticated }) {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className=" flex flex-col h-screen bg-white dark:bg-gray-900">
       <Navbar isAuthenticated={isAuthenticated} />
-      <CourseCardDetailed
-        courseImg={ChemistryCourse}
-        heading={"Khan Academy"}
-        title={title}
-        description={description}
-        link={"https://www.khanacademy.org/science/chemistry/"}
-      />
-      <CourseTOC tableOfContents={tableOfContents} />
+      <div className="flex-grow items-center justify-center flex flex-col bg-white dark:bg-gray-900">
+        <CourseCardDetailed
+          courseImg={ChemistryCourse}
+          heading={"Khan Academy"}
+          title={title}
+          description={description}
+          link={"https://www.khanacademy.org/science/chemistry/"}
+        />
+        <CourseTOC tableOfContents={tableOfContents} />
+      </div>
       <Footer />
     </section>
   );

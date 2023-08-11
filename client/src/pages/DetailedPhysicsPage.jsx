@@ -13,18 +13,20 @@ const tableOfContents = courseInfo["1_classicalMechanicsMIT"].tableOfContents;
 
 export default function DetailedPhysicsPage({ isAuthenticated }) {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className=" flex flex-col h-screen bg-white dark:bg-gray-900">
       <Navbar isAuthenticated={isAuthenticated} />
-      <CourseCardDetailed
-        courseImg={PhysicsCourse}
-        heading={"MIT"}
-        title={title}
-        description={description}
-        link={
-          "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/pages/syllabus/"
-        }
-      />
-      <CourseTOC tableOfContents={tableOfContents} />
+      <div className="flex-grow items-center justify-center flex flex-col bg-white dark:bg-gray-900">
+        <CourseCardDetailed
+          courseImg={PhysicsCourse}
+          heading={"MIT"}
+          title={title}
+          description={description}
+          link={
+            "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/pages/syllabus/"
+          }
+        />
+        <CourseTOC tableOfContents={tableOfContents} />
+      </div>
       <Footer />
     </section>
   );

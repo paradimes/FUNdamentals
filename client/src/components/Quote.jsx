@@ -57,7 +57,7 @@ export default function Quote() {
               the fields and learning them really well over and over. Life is
               mostly about applying the basics and only doing the advanced work
               in the things you truly love, and where you understand the basics
-              inside out. &quot;
+              inside out.&quot;
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center mt-6 space-x-3">
