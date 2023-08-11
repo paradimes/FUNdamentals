@@ -32,6 +32,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
+          <Route path="/" element={<Navigate to="/welcome" />} />
+
           <Route
             // index
             path="account"
