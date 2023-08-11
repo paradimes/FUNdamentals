@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import Navbar from "../components/Navbar";
-import MathCourse from "../assets/MathCourse.svg";
 import Footer from "../components/Footer";
-import UserProfileCard from "../components/userProfileCard";
 import Construction from "../assets/Construction.svg";
 
 function MyAccount({ isAuthenticated, user }) {

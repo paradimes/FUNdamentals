@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from "react";
+import React from "react";
 import LogoutButton from "./LogoutButton";
 import LoginButtonAuth0 from "./LoginButtonAuth0";
 import { Link, useLocation } from "react-router-dom";
@@ -43,11 +43,7 @@ export default function Navbar({ isAuthenticated }) {
           </span>
         </Link>
         <div className="md:hidden flex items-center justify-center gap-5">
-          <NavbarCollapsed
-            isAuthenticated={isAuthenticated}
-            onSwitchTheme={onSwitchTheme}
-            sunImg={Sun}
-          />
+          <NavbarCollapsed isAuthenticated={isAuthenticated} />
           <button
             className="p-1 rounded-full bg-white dark:bg-yellow-400 "
             onClick={onSwitchTheme}

@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import FeatureList from "../components/FeatureList";
 import Navbar from "../components/Navbar";
-import PricingCards from "../components/PricingCards";
 import Footer from "../components/Footer";
 import Quote from "../components/Quote";
 

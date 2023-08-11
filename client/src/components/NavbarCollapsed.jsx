@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 import LoginButtonAuth0 from "./LoginButtonAuth0";
 
-export default function NavbarCollapsed({
-  isAuthenticated,
-  onSwitchTheme,
-  sunImg,
-}) {
+export default function NavbarCollapsed({ isAuthenticated }) {
   return (
     <div className="dropdown dropdown-end md:hidden">
       <label

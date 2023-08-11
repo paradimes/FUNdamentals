@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function UserProfileCard({ courseImg }) {
-  const navigate = useNavigate();
-
   return (
     <div className="p-5 max-w-md mx-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl overflow-hidden md:max-w-2xl">
       <div className="md:flex">
