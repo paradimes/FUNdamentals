@@ -42,7 +42,19 @@ export default function Navbar({ isAuthenticated }) {
             FUNdamentals
           </span>
         </Link>
-        <NavbarCollapsed isAuthenticated={isAuthenticated} />
+        <div className="md:hidden flex items-center justify-center gap-5">
+          <NavbarCollapsed
+            isAuthenticated={isAuthenticated}
+            onSwitchTheme={onSwitchTheme}
+            sunImg={Sun}
+          />
+          <button
+            className="p-1 rounded-full bg-white dark:bg-yellow-400 "
+            onClick={onSwitchTheme}
+          >
+            <img src={Sun} className="w-6 h-6 " />
+          </button>
+        </div>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
@@ -107,7 +119,7 @@ export default function Navbar({ isAuthenticated }) {
             )}
             <li>
               <button
-                className="p-1 rounded-full bg-white dark:bg-slate-500 "
+                className="p-1 rounded-full bg-white dark:bg-yellow-400 "
                 onClick={onSwitchTheme}
               >
                 <img src={Sun} className="w-6 h-6 " />
