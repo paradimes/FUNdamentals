@@ -15,7 +15,7 @@ function LandingPage({ isAuthenticated }) {
       <div className="flex-grow bg-white dark:bg-gray-900">
         <HomePageHero />
         <Logos />
-        <div className="flex flex-row py-5 items-center justify-center bg-white dark:bg-gray-900">
+        <div className="flex flex-row py-5 items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
           <img src={Person3} />
           <img src={Person5} />
           <img src={Person4} />
