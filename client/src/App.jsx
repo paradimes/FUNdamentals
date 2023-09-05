@@ -11,6 +11,7 @@ import DetailedBiologyPage from "./pages/DetailedBiologyPage";
 import DetailedChemistryPage from "./pages/DetailedChemistryPage";
 import About from "./pages/About";
 import MyAccount from "./pages/MyAccount";
+import Search from "./pages/Search";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -50,6 +51,10 @@ function App() {
           <Route
             path="about"
             element={<About isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="search"
+            element={<Search isAuthenticated={isAuthenticated} />}
           />
           <Route
             path="courses"
