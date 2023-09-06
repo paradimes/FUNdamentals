@@ -1,9 +1,9 @@
 const OpenAI = require("openai");
+require("dotenv").config();
 const { topicPrompt } = require("./prompt.json");
 
 const openai = new OpenAI({
-  //   apiKey: process.env.OPENAI_API_KEY,
-  apiKey: "apiKey", // This is also the default, can be omitted
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const generateInfo = async (req, res) => {
