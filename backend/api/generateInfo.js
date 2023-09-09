@@ -13,11 +13,12 @@ const generateInfo = async (req, res) => {
     const chatCompletion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: `${topicPrompt}${topic}` }],
-      max_tokens: 1000,
+      // max_tokens: 2048,
       temperature: 0.2,
-      n: 1,
+      // n: 1,
     });
     const response = chatCompletion.choices[0].message.content;
+    console.log(response);
 
     return res.status(200).json({
       success: true,

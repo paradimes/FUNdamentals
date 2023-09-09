@@ -1,3 +1,4 @@
 scripts
 backend/node_modules
 backend/.env
+backend/api/sampleOutput

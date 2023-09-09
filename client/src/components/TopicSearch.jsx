@@ -10,6 +10,7 @@ export default function TopicSearch() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setError("");
     setResources("");
     setLoading(true);
     try {
@@ -58,9 +59,12 @@ export default function TopicSearch() {
         setResourceCards(newResourceCards);
       }
     } catch (error) {
+      setError(error);
       console.log(error);
     }
   }, [resources]);
+
+  console.log(resources);
 
   return (
     <div
@@ -103,7 +107,11 @@ export default function TopicSearch() {
           className="p-12 min-w-fit min-h-fit grid-cols-1 sm:grid-cols-2 grid md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-600
         dark:from-indigo-600 dark:via-indigo-700 dark:to-indigo-800 m-5 rounded-xl"
         >
-          {resourceCards}
+          {/* <h1 className="">
+            mylittletextbook on {topic}{" "}
+          </h1> */}
+          {/* {resourceCards} */}
+          {resources}
         </div>
       ) : null}
     </div>
