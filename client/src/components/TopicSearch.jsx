@@ -1,17 +1,47 @@
 import React, { useEffect, useState } from "react";
 import ResourceCard from "./ResourceCard";
+import TableOfContents from "./TableOfContents";
+
+function parseSections(contentString) {
+  const contentArray = contentString.split(/\n\n|\n/);
+  console.log("contentArray", contentArray);
+
+  let currentSection = null;
+  const sections = [];
+
+  for (const line of contentArray) {
+    if (/^\d+\./.test(line)) {
+      // Start of a new section
+      if (currentSection) {
+        sections.push(currentSection);
+      }
+      currentSection = {
+        title: line,
+        content: [],
+      };
+    } else if (currentSection) {
+      // Add content to the current section
+      currentSection.content.push(line);
+    }
+  }
+
+  if (currentSection) {
+    sections.push(currentSection);
+  }
+
+  return sections;
+}
 
 export default function TopicSearch() {
   const [topic, setTopic] = useState("");
   const [resources, setResources] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [resourceCards, setResourceCards] = useState([]);
 
   async function handleSubmit(event) {
     event.preventDefault();
     setError("");
-    setResources("");
+    // setResources("");
     setLoading(true);
     try {
       const response = await fetch(
@@ -28,7 +58,9 @@ export default function TopicSearch() {
       const resources = await response.json();
 
       if (resources.data) {
-        setResources(resources.data);
+        const parsedSections = parseSections(resources.data);
+        console.log("parsedSections", parsedSections);
+        setResources(parsedSections);
         setLoading(false);
       } else {
         setError("Unable to get topic info");
@@ -39,32 +71,9 @@ export default function TopicSearch() {
       setLoading(false);
     }
   }
-  useEffect(() => {
-    try {
-      if (resources) {
-        const parsedResources = JSON.parse(resources);
-        const newResourceCards = [];
 
-        for (const resourceId in parsedResources) {
-          const resource = parsedResources[resourceId];
-          newResourceCards.push(
-            <ResourceCard
-              key={resourceId}
-              title={resource.title}
-              to={resource.link}
-              number={resourceId}
-            />
-          );
-        }
-        setResourceCards(newResourceCards);
-      }
-    } catch (error) {
-      setError(error);
-      console.log(error);
-    }
-  }, [resources]);
-
-  console.log(resources);
+  // console.log(resources.split(/\n\n|\n/));
+  console.log("resourcesAPICall = ", resources);
 
   return (
     <div
@@ -101,19 +110,24 @@ export default function TopicSearch() {
         </div>
       )}
       {error ? (
-        <p>An error occurred: {error.errorMessage}</p>
+        <span>An error occurred: {error.errorMessage}</span>
       ) : resources.length ? (
+        // <div
+        //   className="p-12 min-w-fit min-h-fit grid-cols-1 sm:grid-cols-2 grid md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-600
+        // dark:from-indigo-600 dark:via-indigo-700 dark:to-indigo-800 m-5 rounded-xl"
+        // >
+        //   {/* <h1 className="">mylittletextbook on {topic} </h1> */}
+        //   {/* {resourceCards} */}
+        //   {resources}
+        // </div>
         <div
-          className="p-12 min-w-fit min-h-fit grid-cols-1 sm:grid-cols-2 grid md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-600
-        dark:from-indigo-600 dark:via-indigo-700 dark:to-indigo-800 m-5 rounded-xl"
+          className="p-12 min-w-fit min-h-fit gap-4 bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-600
+        // dark:from-indigo-600 dark:via-indigo-700 dark:to-indigo-800 m-5 rounded-xl text-black dark:text-white"
         >
-          {/* <h1 className="">
-            mylittletextbook on {topic}{" "}
-          </h1> */}
-          {/* {resourceCards} */}
-          {resources}
+          <TableOfContents parsedSections={resources} />
         </div>
-      ) : null}
+      ) : // <div>hello</div>
+      null}
     </div>
   );
 }
