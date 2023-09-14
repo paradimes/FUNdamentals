@@ -6,7 +6,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const generateInfo = async (req, res) => {
+const generateResources = async (req, res) => {
   const { topic } = req.body;
 
   try {
@@ -38,4 +38,4 @@ const generateInfo = async (req, res) => {
   }
 };
 
-module.exports = { generateInfo };
+module.exports = { generateResources };

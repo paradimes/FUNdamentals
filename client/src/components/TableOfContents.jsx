@@ -9,7 +9,7 @@ export default function TableOfContents({ parsedSections }) {
           <h1 className="text-3xl font-bold text-yellow-500">
             {section.title}
           </h1>
-          <ul className="mb-10 list-disc">
+          <ul className="mb-10 list-none ">
             {section.content.map((item, i) => (
               <li key={i} className="whitespace-pre-wrap">
                 {/* {console.log(item)} */}

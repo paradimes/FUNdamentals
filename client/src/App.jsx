@@ -12,6 +12,7 @@ import DetailedChemistryPage from "./pages/DetailedChemistryPage";
 import About from "./pages/About";
 import MyAccount from "./pages/MyAccount";
 import Search from "./pages/Search";
+import SearchV2 from "./pages/SearchV2";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -19,6 +20,26 @@ function App() {
   if (isLoading) {
     return <LoadingIndicator />;
   }
+
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  // Whenever the user explicitly chooses light mode
+  localStorage.theme = "light";
+
+  // Whenever the user explicitly chooses dark mode
+  localStorage.theme = "dark";
+
+  // Whenever the user explicitly chooses to respect the OS preference
+  localStorage.removeItem("theme");
 
   // eslint-disable-next-line react/prop-types
   const ProtectedRoute = ({ children }) => {
@@ -55,6 +76,10 @@ function App() {
           <Route
             path="search"
             element={<Search isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="searchv2"
+            element={<SearchV2 isAuthenticated={isAuthenticated} />}
           />
           <Route
             path="courses"
