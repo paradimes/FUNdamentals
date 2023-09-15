@@ -11,6 +11,8 @@ const contentArray = [
   "3. Components of the Rankine Cycle",
   "   3.1 Boiler or Steam Generator",
   "      3.1.1 Function and Types",
+  "         3.1.1.1 Jojo",
+  "         3.1.1.2 Jojo",
   "      3.1.2 Heat Transfer Mechanisms",
   "   3.2 Turbine",
   "      3.2.1 Types and Working Principles",
@@ -65,46 +67,46 @@ const contentArray = [
   "   8.3 Future Prospects and Research Areas",
 ];
 
+function removeLeadingWhitespaces(contentArray) {
+  return contentArray.map((item) => item.replace(/^\s+/, ""));
+}
+const trimmedContentArray = removeLeadingWhitespaces(contentArray);
+console.log(trimmedContentArray);
+
 function parseContentArray(contentArray) {
-  const sections = [];
-  let currentSection = null;
-  let currentSubsection = null;
+  const contentData = [];
+  let currentSection = contentData;
+  let stack = [contentData];
 
   contentArray.forEach((item) => {
-    if (/^\d+\.\s/.test(item)) {
-      // This is a section heading
-      const sectionNumber = item.match(/^\d+/)[0];
-      const sectionTitle = item.replace(/^\d+\.\s/, "");
+    const sectionMatch = item.match(/^(\d+(?:\.\d+)*)(.*)/);
+    if (sectionMatch) {
+      const [_, sectionNumber, sectionTitle] = sectionMatch;
+      const sectionDepth = sectionNumber.split(".").length - 1;
 
-      currentSection = {
-        number: sectionNumber,
-        title: sectionTitle,
+      const sectionObj = {
+        title: sectionTitle.replace(/^\./, "").trim(),
         subsections: [],
+        number: sectionNumber.trim(),
       };
-      sections.push(currentSection);
-    } else if (/^\s+\d+\.\d+\s/.test(item)) {
-      // This is a subsection heading
-      const subsectionNumber = item.match(/^\s+\d+\.\d+/)[0];
-      const subsectionTitle = item.replace(/^\s+\d+\.\d+\s/, "");
 
-      currentSubsection = {
-        number: subsectionNumber,
-        title: subsectionTitle,
-      };
-      currentSection.subsections.push(currentSubsection);
-    } else {
-      // This is content under the subsection
-      if (currentSubsection) {
-        if (!currentSubsection.content) {
-          currentSubsection.content = [];
+      if (sectionDepth === 0) {
+        contentData.push(sectionObj);
+        currentSection = sectionObj;
+        stack = [contentData, currentSection];
+      } else {
+        while (sectionDepth < stack.length - 1) {
+          stack.pop();
         }
-        currentSubsection.content.push(item);
+        stack[stack.length - 1].subsections.push(sectionObj);
+        stack.push(sectionObj);
+        currentSection = sectionObj;
       }
     }
   });
 
-  return sections;
+  return contentData;
 }
 
-const structuredContent = parseContentArray(contentArray);
+const structuredContent = parseContentArray(trimmedContentArray);
 console.log(JSON.stringify(structuredContent, null, 2));
