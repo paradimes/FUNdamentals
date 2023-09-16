@@ -1,152 +1,12 @@
 import React, { useEffect, useState } from "react";
 import TableOfContents2 from "./TableOfContents2";
+import { resourcesDataString } from "../constants";
 
-// const contentArray = [
-//   "Table of Contents: Rankine Cycle",
-//   "1. Introduction to the Rankine Cycle",
-//   "   1.1 Definition and Purpose",
-//   "   1.2 Importance in Power Generation",
-//   "   1.3 Historical Background",
-//   "2. Basic Principles of Thermodynamics",
-//   "   2.1 Laws of Thermodynamics",
-//   "   2.2 Energy Conversion and Heat Transfer",
-//   "   2.3 Ideal vs. Real Processes",
-//   "3. Components of the Rankine Cycle",
-//   "   3.1 Boiler or Steam Generator",
-//   "      3.1.1 Function and Types",
-//   "         3.1.1.1 Jojo",
-//   "         3.1.1.2 Jojo",
-//   "      3.1.2 Heat Transfer Mechanisms",
-//   "   3.2 Turbine",
-//   "      3.2.1 Types and Working Principles",
-//   "      3.2.2 Efficiency and Performance",
-//   "   3.3 Condenser",
-//   "      3.3.1 Purpose and Operation",
-//   "      3.3.2 Cooling Methods",
-//   "   3.4 Pump",
-//   "      3.4.1 Function and Types",
-//   "      3.4.2 Work Input and Efficiency",
-//   "4. Rankine Cycle Processes",
-//   "   4.1 Vaporization or Boiling Process",
-//   "      4.1.1 Saturation and Superheated States",
-//   "      4.1.2 Heat Addition and Steam Quality",
-//   "   4.2 Expansion Process",
-//   "      4.2.1 Adiabatic and Isentropic Expansion",
-//   "      4.2.2 Work Output and Efficiency",
-//   "   4.3 Condensation Process",
-//   "      4.3.1 Heat Rejection and Cooling",
-//   "      4.3.2 Subcooling and Condenser Performance",
-//   "   4.4 Pumping Process",
-//   "      4.4.1 Compression and Work Input",
-//   "      4.4.2 Pressure Increase and Efficiency",
-//   "5. Rankine Cycle Analysis and Performance",
-//   "   5.1 Efficiency Calculation",
-//   "      5.1.1 Carnot Efficiency and Rankine Efficiency",
-//   "      5.1.2 Factors Affecting Efficiency",
-//   "   5.2 Heat Rate and Specific Steam Consumption",
-//   "      5.2.1 Definitions and Formulas",
-//   "      5.2.2 Importance in Power Plant Operation",
-//   "   5.3 Improving Rankine Cycle Performance",
-//   "      5.3.1 Regenerative Feed Heating",
-//   "      5.3.2 Reheating and Superheating",
-//   "      5.3.3 Combined Cycle Configurations",
-//   "6. Applications of the Rankine Cycle",
-//   "   6.1 Steam Power Plants",
-//   "      6.1.1 Thermal Power Plants",
-//   "      6.1.2 Nuclear Power Plants",
-//   "   6.2 Geothermal Power Plants",
-//   "   6.3 Waste Heat Recovery Systems",
-//   "   6.4 Solar Thermal Power Plants",
-//   "7. Challenges and Future Developments",
-//   "   7.1 Environmental Impact and Emissions",
-//   "   7.2 Integration with Renewable Energy Sources",
-//   "   7.3 Advanced Rankine Cycle Technologies",
-//   "      7.3.1 Supercritical and Ultra-Supercritical Cycles",
-//   "      7.3.2 Organic Rankine Cycle (ORC)",
-//   "      7.3.3 Combined Heat and Power (CHP) Systems",
-//   "8. Conclusion",
-//   "   8.1 Summary of Key Concepts",
-//   "   8.2 Importance and Applications",
-//   "   8.3 Future Prospects and Research Areas",
-// ];
-
-const contentArrayNoSpace = [
-  "Table of Contents: Rankine Cycle",
-  "1. Introduction to the Rankine Cycle",
-  "1.1 Definition and Purpose",
-  "1.2 Importance in Power Generation",
-  "1.3 Historical Background",
-  "2. Basic Principles of Thermodynamics",
-  "2.1 Laws of Thermodynamics",
-  "2.2 Energy Conversion and Heat Transfer",
-  "2.3 Ideal vs. Real Processes",
-  "3. Components of the Rankine Cycle",
-  "3.1 Boiler or Steam Generator",
-  "3.1.1 Function and Types",
-  "3.1.1.1 Jojo",
-  "3.1.1.2 Jojo",
-  "3.1.2 Heat Transfer Mechanisms",
-  "3.2 Turbine",
-  "3.2.1 Types and Working Principles",
-  "3.2.2 Efficiency and Performance",
-  "3.3 Condenser",
-  "3.3.1 Purpose and Operation",
-  "3.3.2 Cooling Methods",
-  "3.4 Pump",
-  "3.4.1 Function and Types",
-  "3.4.2 Work Input and Efficiency",
-  "4. Rankine Cycle Processes",
-  "4.1 Vaporization or Boiling Process",
-  "4.1.1 Saturation and Superheated States",
-  "4.1.2 Heat Addition and Steam Quality",
-  "4.2 Expansion Process",
-  "4.2.1 Adiabatic and Isentropic Expansion",
-  "4.2.2 Work Output and Efficiency",
-  "4.3 Condensation Process",
-  "4.3.1 Heat Rejection and Cooling",
-  "4.3.2 Subcooling and Condenser Performance",
-  "4.4 Pumping Process",
-  "4.4.1 Compression and Work Input",
-  "4.4.2 Pressure Increase and Efficiency",
-  "5. Rankine Cycle Analysis and Performance",
-  "5.1 Efficiency Calculation",
-  "5.1.1 Carnot Efficiency and Rankine Efficiency",
-  "5.1.2 Factors Affecting Efficiency",
-  "5.2 Heat Rate and Specific Steam Consumption",
-  "5.2.1 Definitions and Formulas",
-  "5.2.2 Importance in Power Plant Operation",
-  "5.3 Improving Rankine Cycle Performance",
-  "5.3.1 Regenerative Feed Heating",
-  "5.3.2 Reheating and Superheating",
-  "5.3.3 Combined Cycle Configurations",
-  "6. Applications of the Rankine Cycle",
-  "6.1 Steam Power Plants",
-  "6.1.1 Thermal Power Plants",
-  "6.1.2 Nuclear Power Plants",
-  "6.2 Geothermal Power Plants",
-  "6.3 Waste Heat Recovery Systems",
-  "6.4 Solar Thermal Power Plants",
-  "7. Challenges and Future Developments",
-  "7.1 Environmental Impact and Emissions",
-  "7.2 Integration with Renewable Energy Sources",
-  "7.3 Advanced Rankine Cycle Technologies",
-  "7.3.1 Supercritical and Ultra-Supercritical Cycles",
-  "7.3.2 Organic Rankine Cycle (ORC)",
-  "7.3.3 Combined Heat and Power (CHP) Systems",
-  "8. Conclusion",
-  "8.1 Summary of Key Concepts",
-  "8.2 Importance and Applications",
-  "8.3 Future Prospects and Research Areas",
-];
-
-// removeLeadingWhitespaces
 function removeLeadingWhitespaces(contentArray) {
   return contentArray.map((item) => item.replace(/^\s+/, ""));
 }
-// const trimmedContentArray = removeLeadingWhitespaces(contentArray);
-// console.log("trimmedContentArray = ", trimmedContentArray);
 
-function parseContentArray(contentString) {
+function parseContentString(contentString) {
   const contentArray = contentString.split(/\n\n|\n/);
   const trimmedContentArray = removeLeadingWhitespaces(contentArray);
 
@@ -190,13 +50,16 @@ export default function TopicSearchV2() {
   const [resources, setResources] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [tableTitle, setTableTitle] = useState("");
 
-  // function handleSubmit2(event) {
-  //   event.preventDefault();
-  //   const parsedSections = parseContentArray(trimmedContentArray);
-  //   console.log("parsedSections === ", parsedSections);
-  //   setResources(parsedSections);
-  // }
+  console.log(tableTitle);
+
+  function handleSubmit2(event) {
+    event.preventDefault();
+    const parsedSections = parseContentString(resourcesDataString);
+    console.log("parsedSections === ", parsedSections);
+    setResources(parsedSections);
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -215,12 +78,12 @@ export default function TopicSearchV2() {
       const resources = await response.json();
 
       if (resources.data) {
-        console.log("resources.data (response string) === ", resources.data);
+        console.log("resources (response string) === ", resources);
 
-        const parsedSections = parseContentArray(resources.data);
+        const parsedSections = parseContentString(resources.data);
         console.log("parsedSections", parsedSections);
-        // setResources(resources.data);
         setResources(parsedSections);
+        setTableTitle(resources.data.split("\n\n")[0]);
         setLoading(false);
       } else {
         setError("Unable to get topic info");
@@ -232,38 +95,43 @@ export default function TopicSearchV2() {
     }
   }
 
-  // console.log(resources.split(/\n\n|\n/));
-  // console.log("resources = ", resources);
-
   return (
     <div
       id="topic"
-      className="flex flex-col items-center justify-center gap-10"
+      className="flex flex-col items-center justify-center gap-10 "
     >
-      <form
-        className="flex flex-row items-center justify-center gap-5 px-8 py-24 w-full bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600
-        dark:from-yellow-600 dark:via-yellow-800 dark:to-yellow-900
+      <div className=" w-full ">
+        <form
+          className="flex flex-row items-center justify-center gap-5 px-8 py-24 w-full
+        bg-gradient-to-r from-indigo-300 via-indigo-500 to-indigo-600
+        dark:from-indigo-600 dark:via-indigo-800 dark:to-indigo-900
         "
-        onSubmit={handleSubmit}
-      >
-        <label className="flex flex-col gap-3 text-white dark:text-white">
-          <strong>Enter your topic</strong>
-          <div className="flex flex-row">
-            <input
-              onChange={(e) => setTopic(e.target.value)}
-              type="text"
-              placeholder="Web Development, Filmmaking, UI Design..."
-              className="p-4 w-96  text-black bg-slate-200 dark:bg-slate-700 dark:text-white placeholder-slate-400 rounded-xl border-2 border-slate-400"
-            />
-            <button
-              type="submit"
-              className="bg-yellow-600 text-white p-4 mx-4 hover:bg-yellow-700 rounded-xl text-cente font-semibold "
-            >
-              Submit
-            </button>
-          </div>
-        </label>
-      </form>
+          onSubmit={handleSubmit}
+        >
+          <label
+            htmlFor="topic"
+            className="flex flex-col gap-3 text-white dark:text-white"
+          >
+            <strong>Enter your topic</strong>
+            <div className="flex flex-col md:flex-row gap-5">
+              <input
+                onChange={(e) => setTopic(e.target.value)}
+                type="text"
+                id="topic"
+                placeholder="Web Development, Filmmaking, UI Design..."
+                className="p-4 flex-grow rounded-xl md:w-full md:max-w-sm
+                 text-black bg-slate-200 dark:bg-slate-700 dark:text-white placeholder-slate-400 border-2 border-slate-400"
+              />
+              <button
+                type="submit"
+                className="bg-indigo-600 text-white p-4 hover:bg-indigo-700 rounded-xl text-center font-semibold"
+              >
+                Submit
+              </button>
+            </div>
+          </label>
+        </form>
+      </div>
       {loading && (
         <div className="flex items-center justify-center">
           <span className="loading loading-dots loading-lg text-indigo-500 dark:text-indigo-500 "></span>
@@ -273,11 +141,19 @@ export default function TopicSearchV2() {
         <span>An error occurred: {error.errorMessage}</span>
       ) : resources.length ? (
         <div
-          className="p-12 min-w min-h-fit flex flex-col items-center
-           m-5 rounded-xl w-full gap-10
-          bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600
-        // dark:from-yellow-600 dark:via-yellow-700 dark:to-yellow-800 text-black dark:text-white"
+          className="p-12 min-h-fit flex flex-col items-center
+            rounded-xl w-full gap-10 
+          bg-indigo-500 dark:bg-indigo-600 text-black dark:text-white"
         >
+          {tableTitle && (
+            <h1
+              className=" text-3xl font-bold bg-indigo-600 text-white dark:bg-indigo-800 px-8 py-2 rounded-xl flex text-center w-fit items-center justify-center
+            dark:hover:bg-indigo-400 hover:bg-indigo-300
+            "
+            >
+              {tableTitle}
+            </h1>
+          )}
           {resources.map((section) => (
             <TableOfContents2 key={section.number} section={section} />
           ))}{" "}
