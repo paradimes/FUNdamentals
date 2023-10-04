@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TableOfContents2 from "./TableOfContents2";
 import { resourcesDataString } from "../constants";
+import { toTitleCase } from "../utils/stringUtils";
 
 function removeLeadingWhitespaces(contentArray) {
   return contentArray.map((item) => item.replace(/^\s+/, ""));
@@ -50,9 +51,11 @@ export default function TopicSearchV2() {
   const [resources, setResources] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [tableTitle, setTableTitle] = useState("");
+  const [formattedTopic, setFormattedTopic] = useState(toTitleCase(topic));
 
-  console.log(tableTitle);
+  useEffect(() => {
+    setFormattedTopic(toTitleCase(topic));
+  }, [topic]);
 
   function handleSubmit2(event) {
     event.preventDefault();
@@ -83,7 +86,7 @@ export default function TopicSearchV2() {
         const parsedSections = parseContentString(resources.data);
         console.log("parsedSections", parsedSections);
         setResources(parsedSections);
-        setTableTitle(resources.data.split("\n\n")[0]);
+        // setTableTitle(resources.data.split("\n\n")[0]);
         setLoading(false);
       } else {
         setError("Unable to get topic info");
@@ -145,13 +148,13 @@ export default function TopicSearchV2() {
             rounded-xl w-full gap-10 
           bg-indigo-500 dark:bg-indigo-600 text-black dark:text-white"
         >
-          {tableTitle && (
+          {topic && (
             <h1
               className=" text-3xl font-bold bg-indigo-600 text-white dark:bg-indigo-800 px-8 py-2 rounded-xl flex text-center w-fit items-center justify-center
             dark:hover:bg-indigo-400 hover:bg-indigo-300
             "
             >
-              {tableTitle}
+              Table of Contents:{" " + formattedTopic}
             </h1>
           )}
           {resources.map((section) => (
