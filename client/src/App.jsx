@@ -79,7 +79,7 @@ function App() {
           />
           <Route
             path="searchv2"
-            element={<SearchV2 isAuthenticated={isAuthenticated} />}
+            element={<SearchV2 isAuthenticated={isAuthenticated} user={user} />}
           />
           <Route
             path="courses"

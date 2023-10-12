@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import TableOfContents2 from "./TableOfContents2";
 import { resourcesDataString } from "../constants";
@@ -46,16 +47,39 @@ function parseContentString(contentString) {
 }
 //--------------------------------------------------------------------
 
-export default function TopicSearchV2() {
+export default function TopicSearchV2({ isAuthenticated, user = {} }) {
   const [topic, setTopic] = useState("");
   const [resources, setResources] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [formattedTopic, setFormattedTopic] = useState(toTitleCase(topic));
+  console.log(user);
 
   useEffect(() => {
     setFormattedTopic(toTitleCase(topic));
   }, [topic]);
+
+  const handleSaveButtonClick = async () => {
+    // Send a request to your backend to save the resources
+    const response = await fetch("http://localhost:8081/api/saveResources", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userEmail: user.email,
+        resources,
+        formattedTopic,
+      }),
+    });
+
+    // Handle the response...
+    if (response.ok) {
+      alert("Resources saved successfully");
+    } else {
+      alert("Failed to save resources");
+    }
+  };
 
   function handleSubmit2(event) {
     event.preventDefault();
@@ -86,7 +110,6 @@ export default function TopicSearchV2() {
         const parsedSections = parseContentString(resources.data);
         console.log("parsedSections", parsedSections);
         setResources(parsedSections);
-        // setTableTitle(resources.data.split("\n\n")[0]);
         setLoading(false);
       } else {
         setError("Unable to get topic info");
@@ -156,6 +179,14 @@ export default function TopicSearchV2() {
             >
               Table of Contents:{" " + formattedTopic}
             </h1>
+          )}
+          {isAuthenticated && (
+            <button
+              onClick={handleSaveButtonClick}
+              className="bg-indigo-200 text-black dark:bg-black dark:text-white p-4 hover:bg-indigo-300 dark:hover:bg-indigo-900 rounded-xl text-center font-semibold"
+            >
+              Save
+            </button>
           )}
           {resources.map((section) => (
             <TableOfContents2 key={section.number} section={section} />
