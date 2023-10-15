@@ -52,6 +52,20 @@ app.post("/api/saveResources", async (req, res) => {
   res.send("Resources saved successfully");
 });
 
+app.get("/api/getSavedItems", async (req, res) => {
+  const { userEmail } = req.query;
+
+  const user = await User.findOne({ userEmail }).populate("topicsSaved");
+
+  if (!user) {
+    return res.status(404).send("User not found");
+  }
+
+  const savedItems = Array.from(user.topicsSaved.values());
+
+  res.send(savedItems);
+});
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // export the express api

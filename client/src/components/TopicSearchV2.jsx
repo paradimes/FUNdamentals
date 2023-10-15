@@ -53,7 +53,6 @@ export default function TopicSearchV2({ isAuthenticated, user = {} }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [formattedTopic, setFormattedTopic] = useState(toTitleCase(topic));
-  console.log(user);
 
   useEffect(() => {
     setFormattedTopic(toTitleCase(topic));
@@ -75,18 +74,18 @@ export default function TopicSearchV2({ isAuthenticated, user = {} }) {
 
     // Handle the response...
     if (response.ok) {
-      alert("Resources saved successfully");
+      alert("Resources saved successfully.");
     } else {
-      alert("Failed to save resources");
+      alert("Failed to save resources.");
     }
   };
 
-  function handleSubmit2(event) {
-    event.preventDefault();
-    const parsedSections = parseContentString(resourcesDataString);
-    console.log("parsedSections === ", parsedSections);
-    setResources(parsedSections);
-  }
+  // function handleSubmit2(event) {
+  //   event.preventDefault();
+  //   const parsedSections = parseContentString(resourcesDataString);
+  //   console.log("parsedSections === ", parsedSections);
+  //   setResources(parsedSections);
+  // }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -105,10 +104,7 @@ export default function TopicSearchV2({ isAuthenticated, user = {} }) {
       const resources = await response.json();
 
       if (resources.data) {
-        console.log("resources (response string) === ", resources);
-
         const parsedSections = parseContentString(resources.data);
-        console.log("parsedSections", parsedSections);
         setResources(parsedSections);
         setLoading(false);
       } else {

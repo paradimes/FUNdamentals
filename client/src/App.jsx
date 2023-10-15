@@ -13,6 +13,7 @@ import About from "./pages/About";
 import MyAccount from "./pages/MyAccount";
 import Search from "./pages/Search";
 import SearchV2 from "./pages/SearchV2";
+import SavedItemDetailed from "./pages/SavedItemDetailed";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -102,6 +103,10 @@ function App() {
             element={
               <DetailedChemistryPage isAuthenticated={isAuthenticated} />
             }
+          />
+          <Route
+            path="saved/detailed"
+            element={<SavedItemDetailed isAuthenticated={isAuthenticated} />}
           />
         </Route>{" "}
       </Routes>
