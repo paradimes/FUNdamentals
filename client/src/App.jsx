@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import "./custom.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoadingIndicator from "./components/LoadingIndicator";

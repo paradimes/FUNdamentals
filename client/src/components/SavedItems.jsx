@@ -1,23 +1,30 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import SavedItemCard from "./SavedItemCard";
+import axios from "axios";
 
 export default function SavedItems({ userEmail }) {
   const [savedItems, setSavedItems] = useState([]);
 
-  useEffect(() => {
-    const fetchSavedItems = async () => {
-      const response = await fetch(
-        `http://localhost:8081/api/getSavedItems?userEmail=${userEmail}`
-      );
-      const data = await response.json();
-      setSavedItems(data);
-    };
+  const fetchSavedItems = async () => {
+    const response = await fetch(
+      `http://localhost:8081/api/getSavedItems?userEmail=${userEmail}`
+    );
+    const data = await response.json();
+    setSavedItems(data);
+  };
 
+  useEffect(() => {
     fetchSavedItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userEmail]);
 
-  console.log("savedItemsArray: ", savedItems);
+  const handleDelete = async (id) => {
+    await axios.delete("http://localhost:8081/api/deleteSavedItem", {
+      data: { savedItemId: id, userEmail },
+    });
+    fetchSavedItems();
+  };
 
   return (
     <section className="bg-white dark:bg-gray-900">
@@ -30,10 +37,14 @@ export default function SavedItems({ userEmail }) {
             Here are your saved topics.
           </p>
         </div>
-        <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-3">
+        <div className="grid gap-8 mb-6 lg:mb-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {savedItems &&
             savedItems.map((item) => (
-              <SavedItemCard key={item._id} item={item} />
+              <SavedItemCard
+                key={item._id}
+                item={item}
+                onDelete={handleDelete}
+              />
             ))}
         </div>
       </div>

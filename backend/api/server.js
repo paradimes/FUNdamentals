@@ -66,6 +66,29 @@ app.get("/api/getSavedItems", async (req, res) => {
   res.send(savedItems);
 });
 
+app.delete("/api/deleteSavedItem", async (req, res) => {
+  const { savedItemId, userEmail } = req.body;
+
+  // Find the SavedItem
+  let savedItem = await SavedItem.findById(savedItemId);
+
+  // If the SavedItem doesn't exist, send an error response
+  if (!savedItem) {
+    return res.status(404).json({ message: "Item not found" });
+  }
+
+  // Find the user and remove the saved item from the user's topicsSaved map
+  await User.updateOne(
+    { userEmail },
+    { $unset: { [`topicsSaved.${savedItem.topic}`]: "" } }
+  );
+
+  // Delete the SavedItem
+  await SavedItem.findByIdAndDelete(savedItemId);
+
+  res.json({ message: "Item deleted successfully" });
+});
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // export the express api

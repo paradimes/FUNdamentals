@@ -12,7 +12,6 @@ export default function TableOfContents({ parsedSections }) {
           <ul className="mb-10 list-none ">
             {section.content.map((item, i) => (
               <li key={i} className="whitespace-pre-wrap">
-                {/* {console.log(item)} */}
                 {item}
               </li>
             ))}
