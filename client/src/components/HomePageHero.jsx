@@ -5,9 +5,12 @@ import Person2 from "../assets/Person2.svg";
 
 export default function HomePageHero() {
   return (
-    <section className="bg-white dark:bg-gray-900">
-      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 overflow-hidden">
-        <div className="mr-auto place-self-center lg:col-span-7">
+    <section className="bg-white dark:bg-gray-900 ">
+      <div
+        id="main"
+        className="place-items-center lg:place-items-start grid max-w-screen-xl p-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 overflow-hidden gap-4  grid-cols-1"
+      >
+        <div className="w-full mr-auto place-self-center lg:col-span-7 ">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-slate-500 dark:text-white">
             Our only goal is for you to learn.
           </h1>
@@ -34,9 +37,9 @@ export default function HomePageHero() {
             </svg>
           </Link>
         </div>
-        <div className=" lg:mt-0 lg:col-span-5 lg:flex flex flex-row my-5 items-center justify-center w-72 border-8 border-green-400 ml-20 rounded-xl object-contain ">
-          <img src={Person} alt="mockup" />
-          <img src={Person2} alt="mockup" />
+        <div className="flex flex-row items-center justify-center lg:mx-5 rounded-xl overflow-hidden  lg:col-span-5">
+          <img className=" w-32 sm:w-48" src={Person} alt="mockup" />
+          <img className=" w-32 sm:w-48" src={Person2} alt="mockup" />
         </div>
       </div>
     </section>

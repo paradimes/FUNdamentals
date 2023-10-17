@@ -13,7 +13,7 @@ export default function Logos() {
         </h2>
         <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-3 lg:grid-cols-4 bg-slate-200 dark:bg-slate-500 p-10 lg:p-0 items-center justify-center rounded-full">
           <a href="#" className="flex justify-center items-center">
-            <img src={MIT} className="h-9" />
+            <img src={MIT} className="h-9   " />
           </a>
           <a href="#" className="flex justify-center items-center">
             <img src={KhanAcademy} className="h-9" />

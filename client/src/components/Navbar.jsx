@@ -21,14 +21,6 @@ export default function Navbar({ isAuthenticated }) {
   const location = useLocation();
   const path = location.pathname;
 
-  // const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  // useEffect(() => {
-  //   if (prefersDark) {
-  //     document.documentElement.classList.add("dark");
-  //   }
-  // }, [prefersDark]);
-
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

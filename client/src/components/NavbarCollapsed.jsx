@@ -35,6 +35,14 @@ export default function NavbarCollapsed({ isAuthenticated }) {
         </li>
         <li>
           <Link
+            to="/searchv2"
+            className="dark:hover:text-gray-100 dark:hover:bg-slate-500 hover:text-black"
+          >
+            Search{" "}
+          </Link>
+        </li>
+        <li>
+          <Link
             to="/courses"
             className="dark:hover:text-gray-100 dark:hover:bg-slate-500 hover:text-black"
           >
