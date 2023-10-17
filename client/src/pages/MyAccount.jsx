@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Construction from "../assets/Construction.svg";
 import SavedItems from "../components/SavedItems";
 
 function MyAccount({ isAuthenticated, user }) {

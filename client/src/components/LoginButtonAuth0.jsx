@@ -1,5 +1,4 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React from "react";
 
 // eslint-disable-next-line react/prop-types
 const LoginButtonAuth0 = ({ paddingY }) => {

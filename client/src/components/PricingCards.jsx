@@ -1,4 +1,3 @@
-import React from "react";
 import LoginButtonAuth0 from "./LoginButtonAuth0";
 
 function PricingCards() {

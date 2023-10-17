@@ -1,4 +1,3 @@
-import React from "react";
 import MIT from "../assets/MIT.svg";
 import KhanAcademy from "../assets/KhanAcademy.svg";
 import Harvard from "../assets/Harvard.svg";

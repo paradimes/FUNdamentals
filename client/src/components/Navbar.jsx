@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import LogoutButton from "./LogoutButton";
 import LoginButtonAuth0 from "./LoginButtonAuth0";
 import { Link, useLocation } from "react-router-dom";

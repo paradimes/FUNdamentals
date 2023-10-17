@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import TableOfContents2 from "./TableOfContents2";
-import { resourcesDataString } from "../constants";
+// import { resourcesDataString } from "../constants";
 import { toTitleCase } from "../utils/stringUtils";
 
 function removeLeadingWhitespaces(contentArray) {
@@ -19,6 +19,7 @@ function parseContentString(contentString) {
   trimmedContentArray.forEach((item) => {
     const sectionMatch = item.match(/^(\d+(?:\.\d+)*)(.*)/);
     if (sectionMatch) {
+      // eslint-disable-next-line no-unused-vars
       const [_, sectionNumber, sectionTitle] = sectionMatch;
       const sectionDepth = sectionNumber.split(".").length - 1;
 

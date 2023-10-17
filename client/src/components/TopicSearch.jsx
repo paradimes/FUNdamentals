@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import ResourceCard from "./ResourceCard";
+import { useState } from "react";
+// import ResourceCard from "./ResourceCard";
 import TableOfContents from "./TableOfContents";
 
 function parseSections(contentString) {
