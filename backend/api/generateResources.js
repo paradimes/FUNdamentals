@@ -18,7 +18,7 @@ const generateResources = async (req, res) => {
       // n: 1,
     });
     const response = chatCompletion.choices[0].message.content;
-    console.log("backendResponse = ", response);
+    // console.log("backendResponse = ", response);
 
     return res.status(200).json({
       success: true,
