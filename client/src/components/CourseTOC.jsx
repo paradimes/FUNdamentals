@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
-import React from "react";
 
 const WeekComponent = ({ week, topic }) => (
   <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">

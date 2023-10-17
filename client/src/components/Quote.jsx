@@ -1,4 +1,3 @@
-import React from "react";
 import naval from "../assets/naval.jpg";
 
 export default function Quote() {

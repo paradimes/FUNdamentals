@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Link } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 import LoginButtonAuth0 from "./LoginButtonAuth0";
@@ -31,6 +30,14 @@ export default function NavbarCollapsed({ isAuthenticated }) {
             className="dark:hover:text-gray-100 dark:hover:bg-slate-500 hover:text-black"
           >
             About
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/searchv2"
+            className="dark:hover:text-gray-100 dark:hover:bg-slate-500 hover:text-black"
+          >
+            Search{" "}
           </Link>
         </li>
         <li>

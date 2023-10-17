@@ -1,4 +1,3 @@
-import React from "react";
 import MathCourse from "../assets/MathCourse.svg";
 import ChemistryCourse from "../assets/ChemistryCourse.svg";
 import PhysicsCourse from "../assets/PhysicsCourse.svg";

@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Logos from "../components/Logos";
@@ -15,10 +14,10 @@ function LandingPage({ isAuthenticated }) {
       <div className="flex-grow bg-white dark:bg-gray-900">
         <HomePageHero />
         <Logos />
-        <div className="flex flex-row py-5 items-center justify-center bg-white dark:bg-gray-900 overflow-hidden">
-          <img src={Person3} />
-          <img src={Person5} />
-          <img src={Person4} />
+        <div className="flex py-5 items-center justify-center bg-white dark:bg-gray-900 w-full overflow-hidden">
+          <img className="w-32 sm:w-48" src={Person3} />
+          <img className="w-32 sm:w-48" src={Person5} />
+          <img className="w-32 sm:w-48" src={Person4} />
         </div>
       </div>
       <Footer />

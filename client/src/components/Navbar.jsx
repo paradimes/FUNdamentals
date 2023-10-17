@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import LogoutButton from "./LogoutButton";
 import LoginButtonAuth0 from "./LoginButtonAuth0";
 import { Link, useLocation } from "react-router-dom";
@@ -20,14 +19,6 @@ const onSwitchTheme = () => {
 export default function Navbar({ isAuthenticated }) {
   const location = useLocation();
   const path = location.pathname;
-
-  // const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  // useEffect(() => {
-  //   if (prefersDark) {
-  //     document.documentElement.classList.add("dark");
-  //   }
-  // }, [prefersDark]);
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -76,6 +67,30 @@ export default function Navbar({ isAuthenticated }) {
                 }`}
               >
                 About
+              </Link>
+            </li>
+            {/* <li>
+              <Link
+                to="/search"
+                className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                  path === "/search"
+                    ? "text-blue-700 dark:text-blue-600"
+                    : "text-gray-900 dark:text-white"
+                }`}
+              >
+                Search{" "}
+              </Link>
+            </li> */}
+            <li>
+              <Link
+                to="/searchv2"
+                className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                  path === "/searchv2"
+                    ? "text-blue-700 dark:text-blue-600"
+                    : "text-gray-900 dark:text-white"
+                }`}
+              >
+                Search{" "}
               </Link>
             </li>
             <li>
