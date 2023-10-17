@@ -17,6 +17,10 @@ app.use(express.urlencoded({ extended: false }));
 // add router to the server and name it openai
 app.use("/openai", require("./router"));
 
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
+
 app.post("/api/saveResources", async (req, res) => {
   const { userEmail, resources, formattedTopic } = req.body;
 
