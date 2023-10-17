@@ -61,17 +61,20 @@ export default function TopicSearchV2({ isAuthenticated, user = {} }) {
 
   const handleSaveButtonClick = async () => {
     // Send a request to your backend to save the resources
-    const response = await fetch("http://localhost:8081/api/saveResources", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userEmail: user.email,
-        resources,
-        formattedTopic,
-      }),
-    });
+    const response = await fetch(
+      "https://fundamentals-backend.vercel.app/api/saveResources",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userEmail: user.email,
+          resources,
+          formattedTopic,
+        }),
+      }
+    );
 
     // Handle the response...
     if (response.ok) {
@@ -94,13 +97,16 @@ export default function TopicSearchV2({ isAuthenticated, user = {} }) {
     // setResources("");
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8081/openai/generateTOC", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ topic }),
-      });
+      const response = await fetch(
+        "https://fundamentals-backend.vercel.app/openai/generateTOC",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ topic }),
+        }
+      );
 
       const resources = await response.json();
 

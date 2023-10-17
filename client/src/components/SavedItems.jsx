@@ -8,7 +8,7 @@ export default function SavedItems({ userEmail }) {
 
   const fetchSavedItems = async () => {
     const response = await fetch(
-      `http://localhost:8081/api/getSavedItems?userEmail=${userEmail}`
+      `https://fundamentals-backend.vercel.app/api/getSavedItems?userEmail=${userEmail}`
     );
     const data = await response.json();
     setSavedItems(data);
@@ -20,9 +20,12 @@ export default function SavedItems({ userEmail }) {
   }, [userEmail]);
 
   const handleDelete = async (id) => {
-    await axios.delete("http://localhost:8081/api/deleteSavedItem", {
-      data: { savedItemId: id, userEmail },
-    });
+    await axios.delete(
+      "https://fundamentals-backend.vercel.app/api/deleteSavedItem",
+      {
+        data: { savedItemId: id, userEmail },
+      }
+    );
     fetchSavedItems();
   };
 

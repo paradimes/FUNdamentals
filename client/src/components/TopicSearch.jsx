@@ -45,7 +45,7 @@ export default function TopicSearch() {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:8081/openai/generateResources",
+        "https://fundamentals-backend.vercel.app/openai/generateResources",
         {
           method: "POST",
           headers: {
