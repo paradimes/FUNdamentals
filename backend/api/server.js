@@ -18,7 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/openai", require("./router"));
 
 app.get("/", (req, res) => {
-  res.json("Hello");
+  //res.json("Hello");
+  res.send("Hello world");
 });
 
 app.post("/api/saveResources", async (req, res) => {
