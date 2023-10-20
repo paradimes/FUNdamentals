@@ -1,11 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const { User, SavedItem } = require("./user");
-require("./db");
-
-const PORT = 8081;
+const { connect } = require("./db");
+const awsServerlessExpressMiddleware = require("aws-serverless-express/middleware");
 
 const app = express();
+
+app.use(awsServerlessExpressMiddleware.eventContext());
 
 // Allow cross-origin requests (CORS)
 app.use(cors());
@@ -17,11 +18,14 @@ app.use(express.urlencoded({ extended: false }));
 // add router to the server and name it openai
 app.use("/openai", require("./router"));
 
-app.get("/", (req, res) => {
-  res.send("Hello world");
+app.get("/hello", async (req, res) => {
+  console.log("poo");
+  await connect();
+  return res.send("Hello world");
 });
 
 app.post("/api/saveResources", async (req, res) => {
+  await connect();
   const { userEmail, resources, formattedTopic } = req.body;
 
   // Find the user by email
@@ -56,7 +60,13 @@ app.post("/api/saveResources", async (req, res) => {
   res.send("Resources saved successfully");
 });
 
+app.get("/getSavedItems", async (req, res) => {
+  console.log("calling getSavedItems minus api");
+});
+
 app.get("/api/getSavedItems", async (req, res) => {
+  console.log("calling getSavedItems");
+  await connect();
   const { userEmail } = req.query;
 
   const user = await User.findOne({ userEmail }).populate("topicsSaved");
@@ -71,6 +81,8 @@ app.get("/api/getSavedItems", async (req, res) => {
 });
 
 app.delete("/api/deleteSavedItem", async (req, res) => {
+  await connect();
+
   const { savedItemId, userEmail } = req.body;
 
   // Find the SavedItem
@@ -92,8 +104,6 @@ app.delete("/api/deleteSavedItem", async (req, res) => {
 
   res.json({ message: "Item deleted successfully" });
 });
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // export the express api
 module.exports = app;

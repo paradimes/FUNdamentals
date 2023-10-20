@@ -1,13 +1,29 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
+let conn = null;
+
 const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI);
+exports.connect = async function () {
+  if (conn == null) {
+    conn = mongoose
+      .connect(MONGODB_URI, {
+        serverSelectionTimeoutMS: 5000,
+      })
+      .then(() => {
+        console.log("Connected to MongoDB.");
+        return mongoose;
+      })
+      .catch((err) => {
+        console.error("Error: ", err);
+        throw err;
+      });
 
-const db = mongoose.connection;
+    // `await`ing connection after assigning to the `conn` variable
+    // to avoid multiple function calls creating new connections
+    await conn;
+  }
 
-db.on("error", console.error.bind(console, "connection error: "));
-db.once("open", function () {
-  console.log("Database connected successfully.");
-});
+  return conn;
+};
