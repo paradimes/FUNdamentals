@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import ResourceCard from "./ResourceCard";
 import TableOfContents from "./TableOfContents";
+import { API_URL } from "../setup";
 
 function parseSections(contentString) {
   const contentArray = contentString.split(/\n\n|\n/);
@@ -44,16 +45,13 @@ export default function TopicSearch() {
     // setResources("");
     setLoading(true);
     try {
-      const response = await fetch(
-        "https://fundamentals-backend.vercel.app/openai/generateResources",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ topic }),
-        }
-      );
+      const response = await fetch(`${API_URL}/openai/generateResources`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ topic }),
+      });
 
       const resources = await response.json();
 

@@ -2,13 +2,14 @@
 import { useEffect, useState } from "react";
 import SavedItemCard from "./SavedItemCard";
 import axios from "axios";
+import { API_URL } from "../setup";
 
 export default function SavedItems({ userEmail }) {
   const [savedItems, setSavedItems] = useState([]);
 
   const fetchSavedItems = async () => {
     const response = await fetch(
-      `https://fundamentals-backend.vercel.app/api/getSavedItems?userEmail=${userEmail}`
+      `${API_URL}/api/getSavedItems?userEmail=${userEmail}`
     );
     const data = await response.json();
     setSavedItems(data);
@@ -20,12 +21,9 @@ export default function SavedItems({ userEmail }) {
   }, [userEmail]);
 
   const handleDelete = async (id) => {
-    await axios.delete(
-      "https://fundamentals-backend.vercel.app/api/deleteSavedItem",
-      {
-        data: { savedItemId: id, userEmail },
-      }
-    );
+    await axios.delete(`${API_URL}/api/deleteSavedItem`, {
+      data: { savedItemId: id, userEmail },
+    });
     fetchSavedItems();
   };
 
